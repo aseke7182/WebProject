@@ -23,7 +23,7 @@
     </tr>
 </table>
 <h2>About Us</h2>
-<h4>PP website bases on plant-based recipes.</h4>
+<h4>Our website plantyou.kz is all about plant-based diet.</h4>
 <p> 
 	The main functionalities include: <br>
 - Choosing the favorable recipe. <br>

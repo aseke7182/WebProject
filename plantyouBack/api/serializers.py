@@ -31,6 +31,7 @@ class FoodSerializer(serializers.ModelSerializer):
     name = serializers.CharField(required=True)
     portion = serializers.IntegerField(required=True)
     # catalog = CatalogSerializer(read_only=True)
+    catalog = serializers.IntegerField(write_only=True)
     owner = UserSerializer(read_only=True)
 
     class Meta:

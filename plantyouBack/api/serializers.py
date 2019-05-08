@@ -31,7 +31,7 @@ class FoodSerializer(serializers.ModelSerializer):
     name = serializers.CharField(required=True)
     portion = serializers.IntegerField(required=True)
     # catalog = CatalogSerializer(read_only=True)
-    catalog = serializers.IntegerField(write_only=True)
+    # catalog = serializers.IntegerField(write_only=True)
     owner = UserSerializer(read_only=True)
 
     class Meta:
@@ -44,4 +44,11 @@ class FoodSerializer(serializers.ModelSerializer):
 
 
 class IngredientSerializer(serializers.ModelSerializer):
-    pass
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True)
+    amount = serializers.IntegerField(required=True)
+    owner = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Ingredient
+        fields = ('id', 'name', 'amount', 'owner',)

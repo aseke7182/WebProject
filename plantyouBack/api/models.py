@@ -11,20 +11,20 @@ class Catalog(models.Model):
     name = models.CharField(max_length=200)
 
 
+class Ingredient(models.Model):
+    name = models.CharField(max_length=200)
+    amount = models.IntegerField()
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    # foods = models.ForeignKey(Food, on_delete=models.PROTECT, related_name='ingredients',)
+
+
 class Food(models.Model):
     name = models.CharField(max_length=200)
     portion = models.IntegerField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     catalog = models.ForeignKey(Catalog, on_delete=models.PROTECT, related_name='foods')
+    ingredients = models.ForeignKey(Ingredient, on_delete=models.PROTECT, related_name='foods', default=None )  # many=True)
     objects = FoodManager()
-
-
-class Ingredient(models.Model):
-    name = models.CharField(max_length=200)
-    amount = models.IntegerField()
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    foods = models.ForeignKey(Food, on_delete=models.PROTECT, related_name='ingredients')
-
 
 # TODO How Should We Do It ?
 # class Check(models.Model):

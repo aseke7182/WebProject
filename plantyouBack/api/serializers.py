@@ -26,23 +26,6 @@ class CatalogSerializer(serializers.ModelSerializer):
         fields = ('id', 'name',)
 
 
-class FoodSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(required=True)
-    portion = serializers.IntegerField(required=True)
-    # catalog = CatalogSerializer(read_only=True)
-    # catalog = serializers.IntegerField(write_only=True)
-    owner = UserSerializer(read_only=True)
-
-    class Meta:
-        model = Food
-        fields = ('id', 'name', 'portion', 'owner', 'catalog',)
-
-    def create(self, validated_data):
-        catalog = validated_data.pop('catalog')
-        return Food.objects.create(catalog=catalog, **validated_data)
-
-
 class IngredientSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
@@ -52,3 +35,18 @@ class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
         fields = ('id', 'name', 'amount', 'owner',)
+
+
+class FoodSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True)
+    portion = serializers.IntegerField(required=True)
+    owner = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Food
+        fields = ('id', 'name', 'portion', 'owner', 'catalog',)
+
+    def create(self, validated_data):
+        catalog = validated_data.pop('catalog')
+        return Food.objects.create(catalog=catalog, **validated_data)

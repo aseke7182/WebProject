@@ -1,18 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ClassProvider } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { SignupComponent } from './signup/signup.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import {ProviderService} from './services/provider.service';
+import {FormsModule} from '@angular/forms';
+import {Auth} from './Auth'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    MainComponent,
+    SignupComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ProviderService,
+    <ClassProvider> {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Auth,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

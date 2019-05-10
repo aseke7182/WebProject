@@ -12,7 +12,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ProviderService} from './services/provider.service';
 import {FormsModule} from '@angular/forms';
-import {Auth} from './Auth'
+import {Auth} from './Auth';
+import { CatalogComponent } from './catalog/catalog.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {Auth} from './Auth'
     LoginComponent,
     MainComponent,
     SignupComponent,
-    AboutusComponent
+    AboutusComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,

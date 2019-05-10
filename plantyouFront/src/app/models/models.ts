@@ -1,6 +1,7 @@
 export interface Catalog{
     id: number;
     name: string;
+    image: string;
 }
 
 export interface Food{

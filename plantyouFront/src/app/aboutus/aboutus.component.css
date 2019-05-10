@@ -5,7 +5,7 @@
     width: 80%;    
 }
 
-table{
+.aboutus table{
     width: 100%;
     color: tomato;
 }
@@ -23,14 +23,14 @@ table{
     color: white;
 }
 
-h2{
+.aboutus h2{
     color: goldenrod;
     padding: 30px;
     font-size: 50px;
     text-align: center;
 }
 
-p{
+.aboutus p{
     text-indent: 30px;
     color: rgb(243, 215, 215);
 }

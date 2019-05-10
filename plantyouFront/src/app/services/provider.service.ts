@@ -28,4 +28,7 @@ export class ProviderService extends MainService  {
   logout(): Promise<any>{
     return this.post('http://127.0.0.1:8000/api/logout/',{})
   }
+  getCatalogList(): Promise<Catalog[]>{
+    return this.get('http://127.0.0.1:8000/api/catalogs/',{})
+  }
 }

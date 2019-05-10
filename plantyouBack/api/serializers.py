@@ -20,10 +20,11 @@ class UserSerializer(serializers.ModelSerializer):
 class CatalogSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
+    image = serializers.CharField(required=True)
 
     class Meta:
         model = Catalog
-        fields = ('id', 'name',)
+        fields = ('id', 'name','image')
 
 
 class IngredientSerializer(serializers.ModelSerializer):

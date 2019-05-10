@@ -9,6 +9,7 @@ class FoodManager(models.Manager):
 
 class Catalog(models.Model):
     name = models.CharField(max_length=200)
+    image = models.CharField(max_length=500, default="1")
 
 
 class Ingredient(models.Model):

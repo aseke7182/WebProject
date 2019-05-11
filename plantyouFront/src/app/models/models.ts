@@ -13,3 +13,10 @@ export interface Food{
 export interface Auth{
     token: string;
 }
+export interface Developer{
+    id: number;
+    name: string;
+    email: string;
+    github: string;
+    phone: number;
+}

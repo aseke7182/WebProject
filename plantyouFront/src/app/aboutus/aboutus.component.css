@@ -10,6 +10,10 @@
     color: tomato;
 }
 
+.aboutus th{
+    width: 100px;
+}
+
 .aboutus tr,td,th{
     border: 2px solid white;
     height: 50px;

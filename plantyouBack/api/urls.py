@@ -12,4 +12,6 @@ urlpatterns = [
     path('logout/', views.logout),
     path('signup/', views.create_user),
     path('users/', views.UserList.as_view()),
+    path('developers/', views.Developers.as_view()),
+    path('developers/<int:pk>/', views.DeveloperInfo.as_view()),
 ]

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Catalog,Food,Auth} from '../models/models';
+import {Catalog,Food,Auth,Developer} from '../models/models';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -33,5 +33,8 @@ export class ProviderService extends MainService  {
   }
   getFood(food: Catalog): Promise<Food[]>{
     return this.get(`http://127.0.0.1:8000/api/catalogs/${food.id}/foods/`,{})
+  }
+  getDevelopers(): Promise<Developer[]>{
+    return this.get('http://127.0.0.1:8000/api/developers/',{});
   }
 }

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from api.models import Catalog, Food, Ingredient
+from api.models import Catalog, Food, Ingredient, Developer
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -51,3 +51,11 @@ class FoodSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         catalog = validated_data.pop('catalog')
         return Food.objects.create(catalog=catalog, **validated_data)
+
+
+class DeveloperSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Developer
+        fields = ('id', 'name', 'email', 'github', 'phone',)

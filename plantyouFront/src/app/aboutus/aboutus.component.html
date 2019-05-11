@@ -5,22 +5,16 @@
             <th>Name</th>
             <th>Gmail</th>
             <th>Github</th>
+            <th>PhoneNumber</th>
         </tr>
-        <tr>
-            <td>Mussayev Askar</td>
-            <td>aseke7182@gmail.com</td>
-            <td><a href="https://github.com/aseke7182">aseke7182</a></td>
-        </tr>
-        <tr>
-            <td>Duskumbay Leila</td>
-            <td>leiladoskumbay@gmail.com</td>
-            <td><a href="https://github.com/LeilaDos">LeilaDos</a> </td>
-        </tr>
-        <tr>
-            <td>Tlek Aruzhan</td>
-            <td></td>
-            <td><a href="https://github.com/AruzhanTlek">AruzhanTlek</a> </td>
-        </tr>
+        <ng-container *ngFor="let d of developers">
+            <tr>
+                <td>{{d.name}}</td>
+                <td>{{d.email}}</td>
+                <td><a href="https://github.com/{{d.github}}">{{d.github}}</a></td>
+                <td>{{d.phone}}</td>
+            </tr>
+        </ng-container>
     </table>
      <h2>About Us</h2>
      

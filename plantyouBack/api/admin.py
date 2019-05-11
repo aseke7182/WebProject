@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models import Catalog, Ingredient, Food
+from api.models import Catalog, Ingredient, Food, Developer
 
 
 @admin.register(Catalog)
@@ -17,3 +17,8 @@ class IngredientAdmin(admin.ModelAdmin):
 @admin.register(Food)
 class FoodAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Food._meta.get_fields()]
+
+
+@admin.register(Developer)
+class DeveloperAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Developer._meta.get_fields()]

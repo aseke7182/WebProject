@@ -5,25 +5,27 @@ from datetime import datetime
 
 class FoodManager(models.Manager):
     def for_user(self, user):
-        Food.objects.filter(owner=user)
+        return self.filter(owner=user)
 
 
 class Catalog(models.Model):
     name = models.CharField(max_length=200)
+    image = models.CharField(max_length=500, default="1")
 
     class Meta:
         verbose_name = 'Catalog'
         verbose_name_plural = 'Catalogs'
 
-
     def __str__(self):
-        return '{}: {}'.format(self.id, self.name)
+        return '{}: {} {}'.format(self.id, self.name, self.image)
 
     def to_json(self):
         return {
             'id': self.id,
-            'name': self.name
+            'name': self.name,
+            'image': self.image
         }
+
 
 class Food(models.Model):
     name = models.CharField(max_length=200)
@@ -33,7 +35,7 @@ class Food(models.Model):
     objects = FoodManager()
 
     def __str__(self):
-        return  '{: {}'.format(self.id, self.name)
+        return '{}: {}'.format(self.id, self.name)
 
     def to_json(self):
         return {
@@ -46,15 +48,14 @@ class Food(models.Model):
         }
 
 
-
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
     amount = models.IntegerField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    foods = models.ForeignKey(Food, on_delete=models.PROTECT, related_name='ingredients')
+    foods = models.ForeignKey(Food, on_delete=models.CASCADE, default=11, related_name='ingredients')
 
     def __str__(self):
-        return '{: {}'.format(self.id, self.name)
+        return '{}: {}'.format(self.id, self.name)
 
     def to_json(self):
         return {
@@ -72,11 +73,11 @@ class Check(models.Model):
         ('IN PROCESS', 'In process'),
         ('UNDONE', 'Undone'),
     )
-    meals = models.CharField(max_lenght=500)
-    status = models.CharField(max_lenght=10, orders=STATUS_ORDERS, default='UNDONE')
+    meals = models.CharField(max_length=500)
+    status = models.CharField(max_length=10, choices=STATUS_ORDERS, default='UNDONE')
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
     handler = models.ForeignKey(User, on_delete=models.CASCADE, related_name='handler')
-    total_price=models.FloatField(default= 0)
+    total_price = models.FloatField(default=0)
 
 
 class Bonus(models.Model):
@@ -94,18 +95,17 @@ class Bonus(models.Model):
     type = models.CharField(max_length=8, choices=TYPE_ORDERS, default='BRONZE')
 
     def str(self):
-        return "{} {}".format(self.type,self.owner)
+        return "{} {}".format(self.type, self.owner)
 
     def to_json(self):
-        return{
-            'id':self.id,
-            'discount':self.discount,
-            'owner':self.owner,
-            'type':self.type,
+        return {
+            'id': self.id,
+            'discount': self.discount,
+            'owner': self.owner,
+            'type': self.type,
             'start_date': self.start_date,
             'end_date': self.end_date,
         }
-
 
 # TODO How Should We Do It ?
 # class Check(models.Model):

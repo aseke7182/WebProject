@@ -31,4 +31,7 @@ export class ProviderService extends MainService  {
   getCatalogList(): Promise<Catalog[]>{
     return this.get('http://127.0.0.1:8000/api/catalogs/',{})
   }
+  getFood(food: Catalog): Promise<Food[]>{
+    return this.get(`http://127.0.0.1:8000/api/catalogs/${food.id}/foods/`,{})
+  }
 }

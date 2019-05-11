@@ -12,6 +12,8 @@ class IngredientAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Ingredient._meta.get_fields()]
 
 
+# admin.register(Food)
+
 @admin.register(Food)
 class FoodAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Food._meta.get_fields()]

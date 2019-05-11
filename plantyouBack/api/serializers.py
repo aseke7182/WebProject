@@ -24,7 +24,7 @@ class CatalogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Catalog
-        fields = ('id', 'name','image')
+        fields = ('id', 'name', 'image')
 
 
 class IngredientSerializer(serializers.ModelSerializer):

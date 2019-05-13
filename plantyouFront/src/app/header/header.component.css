@@ -26,7 +26,15 @@ header a{
     color: #F29414;
 }
 
+.leftside {
+    display: flex;
+}
+
 nav a{
     margin: 0px 25px;
     letter-spacing: 2px;
+}
+
+nav a:hover{
+    color: pink;
 }

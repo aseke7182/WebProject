@@ -114,10 +114,3 @@ class Developer(models.Model):
     email = models.CharField(max_length=200)
     github = models.CharField(max_length=200)
     phone = models.IntegerField()
-
-# TODO How Should We Do It ?
-# class Check(models.Model):
-#     price = models.IntegerField()
-#     data = models.DateTimeField(auto_now=True)
-#     address = models.CharField()
-#     foods = models.ForeignKey(Food, on_delete=models.SET_NULL())

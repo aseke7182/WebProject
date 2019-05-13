@@ -92,7 +92,7 @@ class Bonus(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     start_date = models.DateTimeField(default=datetime.now)
     end_date = models.DateTimeField(default=datetime.now)
-    type = models.CharField(max_length=8, choices=TYPE_ORDERS, default='BRONZE')
+    type = models.CharField(max_length=8, choices=TYPE_ORDERS, default='FREE')
 
     def str(self):
         return "{} {}".format(self.type, self.owner)
@@ -106,7 +106,8 @@ class Bonus(models.Model):
             'start_date': self.start_date,
             'end_date': self.end_date,
         }
-
+    class Meta:
+        verbose_name_plural= 'Bonuses'
 
 class Developer(models.Model):
     name = models.CharField(max_length=200)

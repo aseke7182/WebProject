@@ -1,0 +1,44 @@
+.aboutus{
+    padding-top: 60px;
+    padding-left: 130px;
+    font-size: 30px;
+    width: 80%;    
+}
+
+.aboutus table{
+    width: 100%;
+    color: tomato;
+}
+
+.aboutus th{
+    width: 100px;
+}
+
+.aboutus tr,td,th{
+    border: 2px solid white;
+    height: 50px;
+}
+
+.aboutus a{    
+    color: tomato;
+}
+
+.aboutus a:hover{
+    color: white;
+}
+
+.aboutus h2{
+    color: goldenrod;
+    padding: 30px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.aboutus p{
+    text-indent: 30px;
+    color: rgb(243, 215, 215);
+}
+
+#here{
+    padding-bottom:  30px;
+}

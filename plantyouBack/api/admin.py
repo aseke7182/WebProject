@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models import Catalog, Ingredient, Food, Developer, Bonus
+from api.models import Catalog, Ingredient, Food, Developer, Bonus, Check
 
 
 @admin.register(Catalog)
@@ -26,3 +26,7 @@ class DeveloperAdmin(admin.ModelAdmin):
 @admin.register(Bonus)
 class BonusAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Bonus._meta.get_fields()]
+
+@admin.register(Check)
+class CheckAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Check._meta.get_fields()]

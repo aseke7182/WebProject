@@ -46,5 +46,9 @@ testem.log
 Thumbs.db
 
 /env7/
+<<<<<<< HEAD
 /node_modules/
 /env/
+=======
+/node_modules/
+>>>>>>> 58c864d0c1608df725f91e95d5bbde29538c6a73

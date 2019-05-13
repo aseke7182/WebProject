@@ -1,23 +1,29 @@
 header{
-    background: black;
+    background: white;
     display: flex;
     justify-content: space-around;
-    height: 60px;
-    width: 100%;
-    position: fixed;  
+    height: 56px;
+    width: 1440px;
+    position: fixed;
     align-items: center; 
     z-index: 999;
 }
 
 header img{
-    height: 50px;
-    width: 250px;
+    height: 40px;
+    width: 40px;
     margin-left: 0;
+}
+header h1{
+  font-size: 50px;
+  font-family: '';
+  color: #F29414;
 }
 
 header a{
+    font-size: 100%;
     text-decoration: none;
-    color: red;
+    color: #F29414;
 }
 
 nav a{

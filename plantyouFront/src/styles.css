@@ -24,8 +24,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	/* background-color: white; */
+<<<<<<< HEAD
 	background-image: url(https://raw.githubusercontent.com/aseke7182/WebProject/master/1.jpeg); 
+=======
+  background-color: white;
+>>>>>>> 3862c2e27e0ec337daab3a9fc11bf178716efa55
 	line-height: 1;
 }
 blockquote, q {

@@ -1,13 +1,18 @@
-<div class="signup">
-  <ng-container *ngIf="!completed">
-    <input type="text"  placeholder="Username" [(ngModel)]="username"> <br>
-    <input type="email"  placeholder="Email"[(ngModel)]="email"> <br>
-    <input type="password"  placeholder="Password"[(ngModel)]="password"> <br>
-    <input type="password"  placeholder="One More Time Password" [(ngModel)]="password2"><br>
-    <button (click)="signup()" >Sign Up</button>
-  </ng-container>
-  <ng-container *ngIf="completed">
-    <h1>You Registered</h1>
-    <a href="/"><button>Go Home</button> </a>
-  </ng-container>
+<h2 style="font-family: 'Arial'">Register</h2>
+<div class= "container">
+  <div id="signup">
+      <div class="signup-screen">
+          <div class="space-bot text-center"><h1 style="font-family: 'Arial'">Sign up</h1><div class="divider"></div></div>
+    <ng-container *ngIf="!completed">
+      <div class="input-field cols6"><input type="text"  placeholder="Username" [(ngModel)]="username"></div> <br>
+      <div class="input-field cols6"><input type="email"  placeholder="Email"[(ngModel)]="email"></div> <br>
+      <div class="input-field cols6"><input type="password"  placeholder="Password"[(ngModel)]="password"></div> <br>
+      <div class="input-field cols6"><input type="password"  placeholder="One More Time Password" [(ngModel)]="password2"></div><br>
+      <div class="space-top text-center"><button (click)="signup()" >Sign Up</button></div>
+    </ng-container>
+    <ng-container *ngIf="completed">
+      <h1 style="font-family: 'Arial'">You Registered</h1>
+      <a href="/"><button>Go Home</button> </a>
+    </ng-container>
+  </div>
 </div>

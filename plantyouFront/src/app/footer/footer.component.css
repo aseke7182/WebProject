@@ -1,10 +1,42 @@
-footer{
-    background: black;
-    color: white;
+footer {
+    background: white;
     display: flex;
-    justify-content: space-around;
-    height: 60px;
-    width: 100%;
-    align-items:center;
-    margin-top: 5%;
+    justify-content: flex-start;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-top: 30%;
+    
 }
+
+footer h1{
+  font-size: 20px;
+  color: #F29414;
+}
+footer img {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.site-footer{
+  display: flex;
+  flex-direction: row;
+}
+ul {
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.links {
+  list-style: none;
+}
+.leftside {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-footer-copyright {
+  box-sizing: border-box;
+  margin-top: 5% ;
+}
+

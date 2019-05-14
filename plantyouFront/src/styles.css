@@ -23,10 +23,12 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
-    background-color: slategray;
+	background-image: url(https://raw.githubusercontent.com/aseke7182/WebProject/master/1.jpeg); 
 	line-height: 1;
 }
+
 blockquote, q {
 	quotes: none;
 }

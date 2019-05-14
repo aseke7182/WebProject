@@ -3,21 +3,25 @@ header{
     display: flex;
     justify-content: space-around;
     height: 56px;
-    width: 1440px;
+    width: 1520px;
     position: fixed;
     align-items: center; 
     z-index: 999;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 header img{
     height: 40px;
     width: 40px;
-    margin-left: 0;
+    margin: 10px;
 }
 header h1{
-  font-size: 50px;
-  font-family: '';
+  font-size: 20px;
   color: #F29414;
+}
+.leftside {
+  display: flex;
+  align-items: center;
 }
 
 header a{
@@ -26,7 +30,15 @@ header a{
     color: #F29414;
 }
 
+.leftside {
+    display: flex;
+}
+
 nav a{
     margin: 0px 25px;
     letter-spacing: 2px;
+}
+
+nav a:hover{
+    color: pink;
 }

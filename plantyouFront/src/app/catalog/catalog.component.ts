@@ -12,6 +12,7 @@ export class CatalogComponent implements OnInit {
   public food: Food[] = [];
   public foodscatalog: Catalog;
   public IsCatalog = true;
+  public BuyFood: number[]=[];
   constructor( private provider: ProviderService ) { }
 
   ngOnInit() {
@@ -32,11 +33,18 @@ export class CatalogComponent implements OnInit {
   }
   getFood(){
     this.provider.getFood(this.foodscatalog).then(res =>{
+      console.log(res);
       this.food = res;
     }).catch(res =>{
       alert("WRONG");
     })
   }
-
-
+  AddToOrder(foodddd: Food){
+    this.BuyFood.push(foodddd.id);
+  }
+  Buy(){
+    this.provider.createCheck(this.BuyFood).then(res=>{
+      alert("Check Successfully created");
+    })
+  }
 }

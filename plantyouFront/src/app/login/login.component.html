@@ -2,11 +2,20 @@
   <ng-container *ngIf="!logged">
       <input type="text"  placeholder="Username" [(ngModel)]="username"> <br>
       <input type="password"  placeholder="Password"[(ngModel)]="password"> <br>
-      <button (click)="login()" >Log In</button>
+      <button (click)="login()"  >Log In</button>
   </ng-container>
   <ng-container *ngIf="logged">
       <h1>You Already Have Logged In</h1>
+      <button (click)="showCheck()" >Show Checks</button>
+      <div *ngIf="ok">
+        <div *ngFor="let c of checks">
+          {{c.cost}}
+        </div>    
+      </div>
       <a href="/"><button>Go Home</button></a> <br>
       <button (click)="logout()">Log Out</button>
+      <a href="/editfood"> <button>Edit Your Foods</button></a>
+      <a href="/createfood"><button>Create New Food</button></a>
+      <a href="/createing"><button>Create New Ingredient</button></a>
   </ng-container>
 </div>

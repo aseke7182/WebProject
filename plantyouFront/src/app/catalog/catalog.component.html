@@ -9,8 +9,17 @@
   <ng-container *ngIf="!IsCatalog">
     {{foodscatalog.name}}
     <div *ngFor="let f of food">
-        {{f.id}}.{{f.name}}:{{f.portion}}
+        <p>{{f.id}}.{{f.name}}:{{f.portion}}:</p>
+        Price: {{f.price}}  
+        <br>
+        Ingredients:
+        <div *ngFor="let i of f.ingredients">
+          {{i.name}}
+        </div>
+        <button (click)="AddToOrder(f)">Make Order</button>
+        <br><br>
     </div>
+    <button (click)="Buy()"> Buy</button>
     <button (click)="ChangeStatus(foodscatalog)">Go Back To Catalog</button>
   </ng-container>
 </div>

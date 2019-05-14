@@ -27,44 +27,32 @@ class Catalog(models.Model):
         }
 
 
+class Ingredient(models.Model):
+    name = models.CharField(max_length=200)
+    amounts = models.IntegerField()
+
+    # foods = models.ManyToManyField(Food)
+
+    def __str__(self):
+        return '{}: {}'.format(self.id, self.name)
+
+    def to_json(self):
+        return {
+            'id': id,
+            'name': self.name,
+            'amount': self.amounts,
+        }
+
+
 class Food(models.Model):
     name = models.CharField(max_length=200)
     portion = models.IntegerField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     catalog = models.ForeignKey(Catalog, on_delete=models.PROTECT, related_name='foods')
+    ingredients = models.ManyToManyField(Ingredient, related_name='ingredients')
+    ingr = models.ManyToManyField(Ingredient)
+    price = models.IntegerField(default=500)
     objects = FoodManager()
-
-    def __str__(self):
-        return '{}: {}'.format(self.id, self.name)
-
-    def to_json(self):
-        return {
-            'id': id,
-            'name': self.name,
-            'portion': self.portion,
-            'owner': self.owner,
-            'catalog': self.catalog,
-            'objects': self.objects
-        }
-
-
-class Ingredient(models.Model):
-    name = models.CharField(max_length=200)
-    amount = models.IntegerField()
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    foods = models.ForeignKey(Food, on_delete=models.CASCADE, default=11, related_name='ingredients')
-
-    def __str__(self):
-        return '{}: {}'.format(self.id, self.name)
-
-    def to_json(self):
-        return {
-            'id': id,
-            'name': self.name,
-            'amount': self.amount,
-            'owner': self.owner,
-            'foods': self.foods
-        }
 
 
 class Check(models.Model):
@@ -73,11 +61,11 @@ class Check(models.Model):
         ('IN PROCESS', 'In process'),
         ('UNDONE', 'Undone'),
     )
-    meals = models.CharField(max_length=500)
     status = models.CharField(max_length=10, choices=STATUS_ORDERS, default='UNDONE')
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
-    handler = models.ForeignKey(User, on_delete=models.CASCADE, related_name='handler')
-    total_price = models.FloatField(default=0)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
+    cost = models.FloatField(default=0)
+    foods = models.ManyToManyField(Food,related_name='food')
+    fo = models.ManyToManyField(Food)
 
 
 class Bonus(models.Model):
@@ -106,8 +94,10 @@ class Bonus(models.Model):
             'start_date': self.start_date,
             'end_date': self.end_date,
         }
+
     class Meta:
-        verbose_name_plural= 'Bonuses'
+        verbose_name_plural = 'Bonuses'
+
 
 class Developer(models.Model):
     name = models.CharField(max_length=200)

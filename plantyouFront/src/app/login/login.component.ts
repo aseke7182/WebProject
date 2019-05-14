@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProviderService} from '../services/provider.service';
+import { HeaderComponent } from '../header/header.component';
+import { Catalog, Food,Check } from '../models/models';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,8 @@ export class LoginComponent implements OnInit {
   public logged = false;
   public username: any = '';
   public password: any = '';
-
+  public checks: Check[] = [];
+  public ok = false;
   constructor(private provider: ProviderService) { }
 
   ngOnInit() {
@@ -20,10 +23,10 @@ export class LoginComponent implements OnInit {
     }
   }
   login() {
-    // tslint:disable-next-line:no-conditional-assignment no-non-null-assertion triple-equals
-    if (this.username! == '' && this.password! == '') {
+    if (this.username!== '' && this.password!== '') {
       this.provider.login(this.username, this.password).then(res => {
         localStorage.setItem('token', res.token);
+        localStorage.setItem('username',res.username);
         this.logged = true;
         this.username = '';
         this.password = '';
@@ -46,5 +49,14 @@ export class LoginComponent implements OnInit {
       alert('ERROR');
     });
   }
-
+  Check(){
+    this.provider.getChecks().then(res =>{
+      console.log(res);
+      this.checks = res;
+    })
+  }
+  showCheck(){
+    this.ok = true;
+    this.Check();
+  }
 }

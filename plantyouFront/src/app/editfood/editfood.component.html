@@ -1,0 +1,24 @@
+<div class="calatog">
+    <ng-container *ngIf="IsCatalog">
+      <div *ngFor="let c of catalog" >
+        {{c.id}}. {{c.name}}:
+        <img src="{{c.image}}" alt="Photo Of This Catalog">
+        <button (click)="ChangeStatus(c)">Choose This Food</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!IsCatalog">
+      {{foodscatalog.name}}
+      <div *ngFor="let f of userList">
+          {{f.id}}.
+          <!-- {{f.name}}:{{f.portion}}: -->
+          <p> NAME: <input type="text" placeholder="{{f.name}}" [(ngModel)] = "f.name" ></p>
+          <p> Portion: <input type="text" placeholder="{{f.portion}}" [(ngModel)] = "f.portion" ></p>  
+          <div *ngFor="let i of f.ingredients">
+            {{i.name}}
+          </div>
+          <button (click)="saveFood(f)" >Save Food</button>
+          <button (click)="deleteFood(f)">Delete Food</button> <br> <br>
+      </div>
+      <button (click)="ChangeStatus(foodscatalog)">Go Back To Catalog</button>
+    </ng-container>
+  </div>

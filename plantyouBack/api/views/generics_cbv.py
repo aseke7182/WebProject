@@ -4,8 +4,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from django.http import Http404
-from api.serializers import UserSerializer, CatalogSerializer, FoodSerializer, IngredientSerializer
-from api.models import Catalog, Food, Ingredient
+from api.serializers import UserSerializer, CatalogSerializer, FoodSerializer, IngredientSerializer, CheckSerializer
+from api.models import Catalog, Food, Ingredient, Check
 from rest_framework.response import Response
 
 
@@ -61,3 +61,28 @@ class FoodInfo(generics.RetrieveUpdateDestroyAPIView):
         catalog = get_object_or_404(Catalog, id=self.kwargs.get('pk'))
         queryset = catalog.foods.filter(owner=self.request.user)
         return queryset
+
+
+class CheckList(generics.ListCreateAPIView):
+    serializer_class = CheckSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        check = Check.objects.all()
+        queryset = check.filter(owner=self.request.user)
+        return queryset
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class UsersFoodList(generics.ListCreateAPIView):
+    serializer_class = FoodSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        catalog = get_object_or_404(Catalog, id=self.kwargs.get('pk'))
+        # catalog = Catalog.objects.all()
+        foods = catalog.foods.all()
+        return foods.filter(owner=self.request.user)
+

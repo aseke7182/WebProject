@@ -6,13 +6,19 @@ import {MainComponent} from './main/main.component';
 import {SignupComponent} from './signup/signup.component';
 import {AboutusComponent} from './aboutus/aboutus.component';
 import {CatalogComponent} from './catalog/catalog.component';
+import {EditfoodComponent} from './editfood/editfood.component';
+import {CreatefoodComponent} from './createfood/createfood.component';
+import {CreateingComponent} from './createing/createing.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'aboutus', component: AboutusComponent},
-  {path: 'catalog', component: CatalogComponent}
+  {path: 'catalog', component: CatalogComponent},
+  {path: 'editfood', component: EditfoodComponent},
+  {path: 'createfood', component: CreatefoodComponent},
+  {path: 'createing', component: CreateingComponent},
 ];
 
 @NgModule({

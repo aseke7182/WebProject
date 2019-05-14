@@ -13,7 +13,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ProviderService} from './services/provider.service';
 import {FormsModule} from '@angular/forms';
 import {Auth} from './Auth';
-import { CatalogComponent } from './catalog/catalog.component'
+import { CatalogComponent } from './catalog/catalog.component';
+import { EditfoodComponent } from './editfood/editfood.component';
+import { CreatefoodComponent } from './createfood/createfood.component';
+import { CreateingComponent } from './createing/createing.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { CatalogComponent } from './catalog/catalog.component'
     MainComponent,
     SignupComponent,
     AboutusComponent,
-    CatalogComponent
+    CatalogComponent,
+    EditfoodComponent,
+    CreatefoodComponent,
+    CreateingComponent
   ],
   imports: [
     BrowserModule,

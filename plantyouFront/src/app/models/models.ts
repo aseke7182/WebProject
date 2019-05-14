@@ -31,7 +31,7 @@ export interface Developer{
 }
 
 export interface Check{
-    id:number;
+    id: number;
     status: string;
     cost: number;
     foods: []

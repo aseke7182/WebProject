@@ -1,6 +1,10 @@
 .container{
     padding-top: 60px;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+.main a{
+     text-decoration: none;
 }
 .col-md-8 {
     width: 66.66666667%;
@@ -14,4 +18,3 @@
     padding-right: 15px;
     padding-left: 15px;
   }
-  

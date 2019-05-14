@@ -39,5 +39,21 @@
                     <a href="https://github.com/aruzhantlek/webdev2019"><h4>АРУЖАН ТЛЕК</h4></a>
                 </div>
   </div>
+  <table>
+        <tr>
+            <th>Name</th>
+            <th>Gmail</th>
+            <th>Github</th>
+            <th>PhoneNumber</th>
+        </tr>
+        <ng-container *ngFor="let d of developers">
+            <tr>
+                <td>{{d.name}}</td>
+                <td>{{d.email}}</td>
+                <td><a href="https://github.com/{{d.github}}">{{d.github}}</a></td>
+                <td>{{d.phone}}</td>
+            </tr>
+        </ng-container>
+    </table>
 </div>
 

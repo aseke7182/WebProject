@@ -1,11 +1,12 @@
 <div class="login">
+    <div class="space-bot text-center"><h1 style="font-family: 'Arial'">You already have logged in</h1><div class="divider"></div></div>
   <ng-container *ngIf="!logged">
-      <input type="text"  placeholder="Username" [(ngModel)]="username"> <br>
-      <input type="password"  placeholder="Password"[(ngModel)]="password"> <br>
+    <div class="input-field cols6"><input type="text"  placeholder="Username" [(ngModel)]="username"></div> <br>
+    <div class="input-field cols6"><input type="password"  placeholder="Password"[(ngModel)]="password"> </div><br>
       <button (click)="login()" >Log In</button>
   </ng-container>
   <ng-container *ngIf="logged">
-      <h1>You Already Have Logged In</h1>
+      <h1 style="font-family: 'Arial'">You Already Have Logged In</h1>
       <a href="/"><button>Go Home</button></a> <br>
       <button (click)="logout()">Log Out</button>
   </ng-container>

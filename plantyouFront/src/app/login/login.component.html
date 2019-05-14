@@ -11,6 +11,9 @@
       <div *ngIf="ok">
         <div *ngFor="let c of checks">
           {{c.cost}}
+          <div *ngFor="let f of c.foods">
+              {{f.name}}
+          </div>
         </div>    
       </div>
       <a href="/"><button>Go Home</button></a> <br>

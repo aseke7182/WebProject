@@ -6,26 +6,13 @@
 
 }
 
-.aboutus table{
-    width: 100%;
-    color: tomato;
+.aboutus h4 {
+  color: white;
 }
 
-.aboutus th{
-    width: 100px;
-}
+.aboutus a {
+    text-decoration: none;
 
-.aboutus tr,td,th{
-    border: 2px solid white;
-    height: 50px;
-}
-
-.aboutus a{
-    color: tomato;
-}
-
-.aboutus a:hover{
-    color: white;
 }
 
 .aboutus .first{

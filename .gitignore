@@ -49,7 +49,7 @@ Thumbs.db
 <<<<<<< HEAD
 /node_modules/
 /env/
-
+env/
 /.vscode/
 =======
 /node_modules/

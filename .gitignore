@@ -50,6 +50,9 @@ Thumbs.db
 /node_modules/
 /env/
 env/
+.idea/
+__pycache__/
+
 /.vscode/
 =======
 /node_modules/

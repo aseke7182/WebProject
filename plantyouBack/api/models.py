@@ -80,7 +80,7 @@ class Bonus(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     start_date = models.DateTimeField(default=datetime.now)
     end_date = models.DateTimeField(default=datetime.now)
-    type = models.CharField(max_length=8, choices=TYPE_ORDERS, default='FREE')
+    type = models.CharField(max_length=80, choices=TYPE_ORDERS, default='FREE')
 
     def str(self):
         return "{} {}".format(self.type, self.owner)

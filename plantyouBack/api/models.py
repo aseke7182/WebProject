@@ -12,36 +12,10 @@ class Catalog(models.Model):
     name = models.CharField(max_length=200)
     image = models.CharField(max_length=500, default="1")
 
-    class Meta:
-        verbose_name = 'Catalog'
-        verbose_name_plural = 'Catalogs'
-
-    def __str__(self):
-        return '{}: {} {}'.format(self.id, self.name, self.image)
-
-    def to_json(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'image': self.image
-        }
-
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
     amounts = models.IntegerField()
-
-    # foods = models.ManyToManyField(Food)
-
-    def __str__(self):
-        return '{}: {}'.format(self.id, self.name)
-
-    def to_json(self):
-        return {
-            'id': id,
-            'name': self.name,
-            'amount': self.amounts,
-        }
 
 
 class Food(models.Model):
@@ -64,7 +38,7 @@ class Check(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_ORDERS, default='UNDONE')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
     cost = models.FloatField(default=0)
-    foods = models.ManyToManyField(Food,related_name='food')
+    foods = models.ManyToManyField(Food, related_name='food')
     fo = models.ManyToManyField(Food)
 
 
@@ -81,19 +55,6 @@ class Bonus(models.Model):
     start_date = models.DateTimeField(default=datetime.now)
     end_date = models.DateTimeField(default=datetime.now)
     type = models.CharField(max_length=80, choices=TYPE_ORDERS, default='FREE')
-
-    def str(self):
-        return "{} {}".format(self.type, self.owner)
-
-    def to_json(self):
-        return {
-            'id': self.id,
-            'discount': self.discount,
-            'owner': self.owner,
-            'type': self.type,
-            'start_date': self.start_date,
-            'end_date': self.end_date,
-        }
 
     class Meta:
         verbose_name_plural = 'Bonuses'

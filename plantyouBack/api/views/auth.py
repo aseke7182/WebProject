@@ -1,13 +1,13 @@
-from rest_framework import generics
 from django.contrib.auth.models import User
-from rest_framework.response import Response
-from api.serializers import UserSerializer
-from rest_framework.decorators import api_view
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from rest_framework.authtoken.models import Token
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
 from rest_framework import status
-from rest_framework.decorators import permission_classes
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+from api.serializers import UserSerializer
 
 
 class UserList(generics.ListAPIView):
@@ -22,7 +22,6 @@ def login(request):
     serializer.is_valid(raise_exception=True)
     user = serializer.validated_data.get('user')
     token, created = Token.objects.get_or_create(user=user)
-    # username = request.user.username
     username = token.user.username
     return Response({'token': token.key, 'username': username})
 
@@ -34,7 +33,6 @@ def logout(request):
 
 
 @api_view(['POST'])
-# @permission_classes((AllowAny,))
 def create_user(request):
     serialized = UserSerializer(data=request.data)
     if serialized.is_valid():

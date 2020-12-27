@@ -40,7 +40,6 @@ class IngredientSerializer(serializers.ModelSerializer):
 class FoodSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     ingredients = IngredientSerializer(read_only=True, many=True)
-    # ingr = IngredientSerializer(write_only=True, many=True)
     owner = UserSerializer(read_only=True)
 
     class Meta:
